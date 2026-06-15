@@ -796,7 +796,6 @@ function renderSessionList(){
   // Build sessions for this week based on freq
   const sessionsThisWeek = getSessForWeek(curPhaseIdx, curWeek);
 
-  const phase = getPhase(cycleDay);
   const list=document.getElementById('session-list'); list.innerHTML='';
   sessionsThisWeek.forEach((sess,i)=>{
     const done=isSessionDone(curPhaseIdx,curWeek,i);
