@@ -91,6 +91,7 @@ body{font-family:var(--sans);color:var(--text);font-size:15px;-webkit-font-smoot
 .th-run-s {background:#f0fdf6}
 .th-run   {background:#f0fdf9}
 .th-yoga  {background:#f5f0ff}
+.th-libre {background:#fffbf0}
 .thumb-figure{font-size:38px;line-height:1}
 
 /* Week tabs */
@@ -163,7 +164,20 @@ body{font-family:var(--sans);color:var(--text);font-size:15px;-webkit-font-smoot
 .yoga-body{flex:1}
 .yoga-name{font-size:15px;font-weight:800;margin-bottom:2px}
 .yoga-meta{font-size:12px;color:var(--muted)}
-.yoga-arrow{color:var(--muted);font-size:18px}
+
+/* Recipe cards */
+.recipe-filter-row{display:flex;gap:8px;padding:0 20px 12px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.recipe-filter-row::-webkit-scrollbar{display:none}
+.rfpill{flex-shrink:0;padding:7px 14px;border-radius:100px;border:1.5px solid var(--border);background:transparent;color:var(--muted);font-family:var(--sans);font-size:13px;font-weight:600;cursor:pointer;transition:all .2s}
+.rfpill.active{color:#fff;border-color:transparent}
+.recipe-card{display:flex;align-items:center;margin:0 20px 10px;background:var(--white);border-radius:var(--r);padding:14px;gap:14px;border:1px solid var(--border)}
+.recipe-card.phase-match{border-color:transparent;box-shadow:0 0 0 2px var(--phase-clr,var(--rose))}
+.recipe-thumb{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0}
+.recipe-body{flex:1;min-width:0}
+.recipe-name{font-size:14px;font-weight:800;margin-bottom:3px}
+.recipe-meta{font-size:11px;color:var(--muted);display:flex;gap:6px;align-items:center}
+.recipe-phase-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.recipe-time{font-size:11px;color:var(--muted)}
 
 /* Run log */
 .run-big-inp{width:100%;background:var(--white);border:1.5px solid var(--border);border-radius:14px;color:var(--text);font-family:var(--sans);font-size:28px;font-weight:800;text-align:center;padding:16px;outline:none}
@@ -280,12 +294,6 @@ body{font-family:var(--sans);color:var(--text);font-size:15px;-webkit-font-smoot
     <div class="sec-hdr-arrow open" id="prefs-arrow">↑</div>
   </div>
   <div class="sec-body" id="prefs-body">
-    <div class="prefs-label">Séances par semaine</div>
-    <div class="pill-row" id="freq-row">
-      <button class="pill-sel" onclick="selFreq(2,this)">2</button>
-      <button class="pill-sel active" onclick="selFreq(3,this)">3</button>
-      <button class="pill-sel" onclick="selFreq(4,this)">4</button>
-    </div>
     <div class="prefs-label">Cycle menstruel</div>
     <div class="cycle-pref" id="cycle-pref-card">
       <div class="cycle-pref-left">
@@ -323,9 +331,6 @@ body{font-family:var(--sans);color:var(--text);font-size:15px;-webkit-font-smoot
     <div class="cta-area">
       <button class="btn btn-rose btn-full" id="cta-btn" onclick="startNextSession()" style="flex:1">Commencer le programme !</button>
       <button class="fav-btn">♡</button>
-    </div>
-    <div style="padding:8px 20px 0">
-      <button class="btn btn-ghost btn-full" onclick="openLibre()" style="border-color:var(--border);color:var(--muted);font-size:12px">+ Séance libre (salle, cardio…)</button>
     </div>
     <div class="spacer"></div>
   </div>
@@ -443,22 +448,18 @@ body{font-family:var(--sans);color:var(--text);font-size:15px;-webkit-font-smoot
   <div class="yoga-card sel" onclick="openYogaLog('Pilates doux',this)" id="yc-pilates">
     <div class="yoga-icon" style="background:#f3eeff">🧘</div>
     <div class="yoga-body"><div class="yoga-name">Pilates doux</div><div class="yoga-meta">30 min · mobilité + gainage léger</div></div>
-    <div class="yoga-arrow">›</div>
   </div>
   <div class="yoga-card" onclick="openYogaLog('Yoga restauratif',this)" id="yc-yoga">
     <div class="yoga-icon" style="background:#f0fdf4">🌿</div>
     <div class="yoga-body"><div class="yoga-name">Yoga restauratif</div><div class="yoga-meta">40 min · étirements profonds</div></div>
-    <div class="yoga-arrow">›</div>
   </div>
   <div class="yoga-card" onclick="openYogaLog('Mobilité',this)" id="yc-mob">
     <div class="yoga-icon" style="background:#fff7ed">🤸</div>
     <div class="yoga-body"><div class="yoga-name">Mobilité</div><div class="yoga-meta">20 min · hanches, chevilles, dos</div></div>
-    <div class="yoga-arrow">›</div>
   </div>
   <div class="yoga-card" onclick="openYogaLog('Méditation',this)" id="yc-med">
     <div class="yoga-icon" style="background:#fdf4ff">🌙</div>
     <div class="yoga-body"><div class="yoga-name">Méditation</div><div class="yoga-meta">10–15 min · respiration, scan corporel</div></div>
-    <div class="yoga-arrow">›</div>
   </div>
 
   <!-- Yoga log inline -->
@@ -518,6 +519,10 @@ body{font-family:var(--sans);color:var(--text);font-size:15px;-webkit-font-smoot
     <button class="btn btn-claude btn-full" onclick="generateMealPlan()" style="margin-top:4px">✨ Générer avec Claude</button>
     <div class="claude-loading2" id="claude-loading">⏳ Claude réfléchit à ton plan...</div>
   </div>
+
+  <div style="padding:20px 20px 10px;font-size:13px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)">📌 Mes recettes</div>
+  <div class="recipe-filter-row" id="recipe-filters"></div>
+  <div id="recipe-list"></div>
   <div class="spacer"></div>
 </div>
 
@@ -643,6 +648,14 @@ const SESSIONS = [
     type:'run',
     exercises:[]
   },
+  {
+    id:'LIBRE', name:'Séance libre', tag:'Séance 5',
+    meta:'Salle · Cardio · Natation · Cours…',
+    thumbClass:'th-libre', emoji:'🌟',
+    description:'Ta séance perso — ajoute ce que tu veux',
+    type:'libre',
+    exercises:[]
+  },
 ];
 
 const YOGA_SESSIONS = [
@@ -706,6 +719,44 @@ const PHASES = [
 
 function getPhase(d){ return PHASES.find(p=>d>=p.range[0]&&d<=p.range[1])||PHASES[0]; }
 
+// ── RECETTES (Pinterest · taguées par phase cycle) ────────────
+// phases: 0=Hiver(J1-3) 1=Printemps(J4-12) 2=Été(J13-15) 3=Automne(J16-28)
+const RECIPES = [
+  // ── Petit-déjeuner / toutes phases ──
+  {id:'r01', name:'Cottage Cheese Omelette',    emoji:'🍳', phases:[0,1,2,3], time:'10 min', tags:'Petit-déj · Protéines', bg:'#fff7ed', desc:'Cottage cheese, épinards sautés, parmesan. High protein, low carb.'},
+  {id:'r02', name:'Pancakes protéinés',         emoji:'🥞', phases:[1,2,3],   time:'20 min', tags:'Petit-déj · Flocons avoine', bg:'#fdf4ff', desc:'Flocons d\'avoine, yaourt grec, œufs. Sans poudre protéinée. ~34g protéines.'},
+  {id:'r03', name:'Savory Cottage Cheese Bowl', emoji:'🥚', phases:[1,2],     time:'5 min',  tags:'Petit-déj · Rapide', bg:'#f0fdf4', desc:'Cottage cheese, tomates, olives, avocat, œuf. Snack ou petit-déj protéiné.'},
+  {id:'r04', name:'Hormone Friendly Breakfast', emoji:'🌸', phases:[0,3],     time:'10 min', tags:'Petit-déj · Hormones', bg:'#fdf0f4', desc:'Assiette pensée pour équilibrer les hormones. Graines, œufs, légumes.'},
+  // ── Bowls & salades ──
+  {id:'r05', name:'Crème de thon spicy',        emoji:'🐟', phases:[1,2,3],   time:'5 min',  tags:'Bowl · 46g protéines', bg:'#f0f8ff', desc:'Thon, petits-suisses, ail, herbes, piment. Sur toasts, salades ou en apéro sain.'},
+  {id:'r06', name:'Quick Tuna Salad Bowl',      emoji:'🥗', phases:[1,2],     time:'10 min', tags:'Bowl · Rapide', bg:'#f0fdf4', desc:'Thon, légumes colorés. Bowl high protein express pour le déjeuner.'},
+  {id:'r07', name:'Mediterranean Chicken Bowl', emoji:'🫙', phases:[1,2],     time:'25 min', tags:'Bowl · Poulet', bg:'#fff7ed', desc:'Poulet, légumes méditerranéens, herbes. Classique protéiné et équilibré.'},
+  {id:'r08', name:'Protein-Packed Quinoa Bowl', emoji:'🌾', phases:[1,2],     time:'20 min', tags:'Bowl · Vegan · 30g protéines', bg:'#f0fdf6', desc:'Quinoa, légumineuses, légumes variés. 30g protéines végétales par bol.'},
+  {id:'r09', name:'Green Goddess Couscous Bowl',emoji:'🌿', phases:[1,2],     time:'15 min', tags:'Bowl · Herbes fraîches', bg:'#f0fdf4', desc:'Couscous, green goddess dressing, herbes. Léger et parfumé.'},
+  {id:'r10', name:'High-Protein Zucchini Pesto',emoji:'🥒', phases:[1,2],     time:'20 min', tags:'Bowl · Pesto · Vegan', bg:'#f0fdf6', desc:'Courgettes, pesto maison. 30g protéines végétales par bol.'},
+  {id:'r11', name:'Beetroot Medi Bowl',         emoji:'🫐', phases:[2],       time:'20 min', tags:'Bowl · Antioxydants', bg:'#fdf0f8', desc:'Betterave, inspiration méditerranéenne. Riche en antioxydants, idéal ovulatoire.'},
+  {id:'r12', name:'Cheesy Beany Broccoli Bowl', emoji:'🥦', phases:[1,3],     time:'20 min', tags:'Bowl · Légumineuses', bg:'#f0fdf4', desc:'Haricots, brocolis, fromage fondu. Bowl chaud et rassasiant.'},
+  {id:'r13', name:'Assiette Skincare "That Girl"',emoji:'✨',phases:[2],      time:'10 min', tags:'Bowl · Vitamines · Anti-inflam', bg:'#fffbf0', desc:'Patate douce, avocat, œufs durs, asperges, roquette. Vitamine A, rétinol naturel, bons gras.'},
+  // ── Plats chauds ──
+  {id:'r14', name:'Creamy Leek Butter Beans',   emoji:'🫘', phases:[3,0],     time:'30 min', tags:'Plat chaud · Légumineuses', bg:'#fdf9f0', desc:'Poireaux, butter beans, ail, fenouil, bouillon. Crémeux et réconfortant.'},
+  {id:'r15', name:'Butter Tofu',                emoji:'🧡', phases:[3],       time:'25 min', tags:'Plat chaud · Tofu', bg:'#fff7ed', desc:'Tofu façon butter chicken. Épicé, riche en protéines végétales.'},
+  {id:'r16', name:'Beans Alla Vodka',           emoji:'🍅', phases:[3],       time:'25 min', tags:'Plat chaud · Sauce', bg:'#fff4f0', desc:'Haricots blancs, sauce tomate alla vodka. Comfort food healthy.'},
+  {id:'r17', name:'Eggplant Meatballs',         emoji:'🍆', phases:[3,0],     time:'35 min', tags:'Plat chaud · Vegan', bg:'#f5f0ff', desc:'Boulettes d\'aubergines aux pâtes. Végétarien et réconfortant.'},
+  {id:'r18', name:'Orzo boulettes abricot-romarin',emoji:'🍑',phases:[3],     time:'35 min', tags:'Plat chaud · Orzo', bg:'#fff7ed', desc:'Boulettes abricot & romarin, orzo crémeux. Saveur sucrée-salée automnale.'},
+  {id:'r19', name:'Gratin courgettes ravioles', emoji:'🫕', phases:[3,0],     time:'40 min', tags:'Gratin · Batch cooking', bg:'#f0f4ff', desc:'Courgettes, ravioles, sauce crémeuse. Idéal batch cooking du dimanche.'},
+  {id:'r20', name:'Romesco Pasta',              emoji:'🍝', phases:[3,1],     time:'30 min', tags:'Pasta · 40g protéines', bg:'#fff4f0', desc:'Pâtes, sauce romesco. 40g protéines par bol, simple et rapide.'},
+  {id:'r21', name:'Cottage Pie slow cooker',    emoji:'🥧', phases:[0,3],     time:'60 min', tags:'Plat chaud · Batch · Fer', bg:'#f5f5f0', desc:'Hachis parmentier sain, batch cooking. Riche, réconfortant, riche en fer.'},
+  // ── Soupes ──
+  {id:'r22', name:'Soupe carottes butter beans', emoji:'🥕', phases:[0,3],    time:'30 min', tags:'Soupe · Réconfort', bg:'#fff8f0', desc:'Carottes, butter beans, bouillon. Anti-inflammatoire et chaleureuse.'},
+  {id:'r23', name:'Orange "Heal Me" Soup',       emoji:'🍊', phases:[0,3],    time:'25 min', tags:'Soupe · Anti-inflam', bg:'#fff8f0', desc:'Carottes, gingembre, curcuma. Soupe curative, idéale J1-J3.'},
+  {id:'r24', name:'Miso Ginger Broth',           emoji:'🍵', phases:[2,3],    time:'10 min', tags:'Bouillon · Post-workout', bg:'#f0fdf4', desc:'Miso, gingembre, ail, citron. Anti-inflammatoire, idéal récupération.'},
+  // ── Lasagnes & gratins ──
+  {id:'r25', name:'Lentil Lasagne',              emoji:'🫘', phases:[0,3],    time:'45 min', tags:'Gratin · Fer · Vegan', bg:'#fdf0f4', desc:'Lasagne lentilles & champignons. Batch cooking, riche en fer et protéines végétales.'},
+  {id:'r26', name:'High Protein Vegan Lasagna',  emoji:'🌿', phases:[0,3],    time:'50 min', tags:'Gratin · Protéines · Vegan', bg:'#f0fdf4', desc:'Lasagne 100% végétale, haute protéines. Meal prep de la semaine.'},
+];
+
+let curRecipeFilter = -1; // -1 = phase actuelle, 0-3 = phase spécifique
+
 // ── DATA ──────────────────────────────────────────────────────
 const DB   = k=>{try{return JSON.parse(localStorage.getItem('el_'+k))}catch{return null}};
 const SAVE = (k,v)=>localStorage.setItem('el_'+k,JSON.stringify(v));
@@ -715,7 +766,6 @@ let pbs        = DB('pbs')||{};
 let mealPlan   = DB('mealPlan')||null;
 let targetKcal = DB('kcal')||1800;
 let cycleDay   = DB('cycleDay')||5;
-let freq       = DB('freq')||3;
 let curPhaseIdx= 0, curWeek=0, curSessionIdx=0;
 let activeProgKey=null;
 let wStart=null, wTimer=null, restInt=null, restSec=0;
@@ -744,7 +794,6 @@ function toggle(bodyId, arrowId){
 }
 
 // ── PREFS ─────────────────────────────────────────────────────
-function selFreq(v,btn){ freq=v; SAVE('freq',v); document.querySelectorAll('#freq-row .pill-sel').forEach(b=>b.classList.remove('active')); btn.classList.add('active'); renderSessionList(); }
 function adjCycle(d){ cycleDay=Math.max(1,Math.min(28,cycleDay+d)); SAVE('cycleDay',cycleDay); updateCycleUI(); renderSessionList(); }
 
 function updateCycleUI(){
@@ -820,8 +869,8 @@ function renderSessionList(){
 }
 
 function getSessForWeek(phaseIdx, weekIdx){
-  // Toujours 3 muscu + 1 run (le cycle syncing adapte l'intensité, pas le programme)
-  return [SESSIONS[0], SESSIONS[1], SESSIONS[2], SESSIONS[3]];
+  // Toujours 3 muscu + 1 run + 1 libre
+  return [SESSIONS[0], SESSIONS[1], SESSIONS[2], SESSIONS[3], SESSIONS[4]];
 }
 
 function isSessionDone(phaseIdx,weekIdx,sessIdx){
@@ -856,6 +905,12 @@ function launchSession(sessId, phaseIdx, weekIdx, sessIdx){
   }
   if(sess.type==='yoga'){
     go('bienetre',document.getElementById('nav-bienetre'));
+    return;
+  }
+  if(sess.type==='libre'){
+    activeProgKey={phaseIdx,weekIdx,sessIdx};
+    go('workout',document.getElementById('nav-workout'));
+    openLibre();
     return;
   }
   activeProgKey={phaseIdx,weekIdx,sessIdx};
@@ -1113,6 +1168,7 @@ function saveLibre(){
     duration:mins*60, kcal, notes, feel:libFeel
   };
   workouts.unshift(w); SAVE('workouts',workouts);
+  if(activeProgKey){ markSessionDone(activeProgKey.phaseIdx,activeProgKey.weekIdx,activeProgKey.sessIdx); activeProgKey=null; }
   resetWorkoutView();
   const feelEmoji = ['😓','😐','💪','🔥'][libFeel-1];
   document.getElementById('c-emoji').textContent = feelEmoji;
@@ -1194,6 +1250,56 @@ function saveYoga(){
 function renderNutrition(){
   const key=DB('apiKey'); if(key) document.getElementById('api-key').value=key;
   if(mealPlan) renderMealPlan(mealPlan);
+  renderRecipes();
+}
+
+function renderRecipes(){
+  const ph = getPhase(cycleDay);
+  const phIdx = PHASES.indexOf(ph);
+  // -1 = phase actuelle
+  const activeFilter = curRecipeFilter === -1 ? phIdx : curRecipeFilter;
+
+  // Filters bar
+  const filterEl = document.getElementById('recipe-filters');
+  const phaseLabels = [
+    {idx:0, label:'🌙 Hiver', color:'#8B6FBB'},
+    {idx:1, label:'🌱 Printemps', color:'#22A878'},
+    {idx:2, label:'☀️ Été', color:'#C8758A'},
+    {idx:3, label:'🍂 Automne', color:'#D4844A'},
+  ];
+  filterEl.innerHTML = `<button class="rfpill${curRecipeFilter===-1?' active':''}" style="${curRecipeFilter===-1?'background:'+ph.color+';':''}" onclick="selRecipeFilter(-1,this)">✨ Ma phase</button>` +
+    phaseLabels.map(p=>`<button class="rfpill${curRecipeFilter===p.idx?' active':''}" style="${curRecipeFilter===p.idx?'background:'+p.color+';':''}" onclick="selRecipeFilter(${p.idx},this)">${p.label}</button>`).join('') +
+    `<button class="rfpill${curRecipeFilter===99?' active':''}" style="${curRecipeFilter===99?'background:var(--muted);':''}" onclick="selRecipeFilter(99,this)">Toutes</button>`;
+
+  // Filter recipes
+  const visible = curRecipeFilter === 99
+    ? RECIPES
+    : RECIPES.filter(r => r.phases.includes(activeFilter));
+
+  // Render
+  const list = document.getElementById('recipe-list');
+  if(!visible.length){ list.innerHTML='<div style="padding:0 20px 16px;color:var(--muted);font-size:13px">Aucune recette pour cette phase.</div>'; return; }
+  const phColors = ['#8B6FBB','#22A878','#C8758A','#D4844A'];
+  list.innerHTML = visible.map(r => {
+    const isMatch = r.phases.includes(phIdx);
+    const borderStyle = isMatch && curRecipeFilter!==99 ? `border:2px solid ${phColors[phIdx]}` : '';
+    return `<div class="recipe-card" style="${borderStyle}">
+      <div class="recipe-thumb" style="background:${r.bg}">${r.emoji}</div>
+      <div class="recipe-body">
+        <div class="recipe-name">${r.name}</div>
+        <div class="recipe-meta">
+          <div class="recipe-phase-dot" style="background:${phColors[r.phases[0]]}"></div>
+          <span>${r.tags}</span><span style="margin:0 2px">·</span><span>${r.time}</span>
+        </div>
+        <div style="font-size:12px;color:var(--muted);margin-top:4px;line-height:1.4">${r.desc}</div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function selRecipeFilter(idx, btn){
+  curRecipeFilter = idx;
+  renderRecipes();
 }
 function saveKey(){SAVE('apiKey',document.getElementById('api-key').value);}
 function selKcal(v,btn){ targetKcal=v; SAVE('kcal',v); document.querySelectorAll('#kcal-row .gen-pref2').forEach(b=>b.classList.remove('sel')); btn.classList.add('sel'); }
