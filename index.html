@@ -39,7 +39,6 @@ body{font-family:var(--sans);color:var(--text);font-size:15px;-webkit-font-smoot
 .btn-green{background:var(--green);color:#fff}
 .btn-purple{background:var(--purple);color:#fff}
 .btn-full{width:100%;padding:17px;border-radius:100px;font-size:14px;letter-spacing:.08em}
-.btn-claude{background:linear-gradient(135deg,#7c3aed,#a855f7);color:#fff}
 
 /* Section headers (collapsible) */
 .sec-hdr{display:flex;justify-content:space-between;align-items:center;padding:20px 20px 14px;cursor:pointer}
@@ -63,7 +62,7 @@ body{font-family:var(--sans);color:var(--text);font-size:15px;-webkit-font-smoot
 .cycle-ctrl{display:flex;flex-direction:column;align-items:center;gap:3px}
 .cycle-ctrl-val{font-size:22px;font-weight:900}
 .cycle-ctrl-btns{display:flex;gap:4px}
-.cyc-btn{width:26px;height:26px;border-radius:8px;background:var(--bg);border:1px solid var(--border);font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--text)}
+.cyc-btn{width:44px;height:44px;border-radius:10px;background:var(--bg);border:1px solid var(--border);font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--text);-webkit-tap-highlight-color:transparent}
 
 /* Phase tabs */
 .phase-tabs{display:flex;align-items:center;gap:0;padding:0 20px 10px}
@@ -128,7 +127,7 @@ body{font-family:var(--sans);color:var(--text);font-size:15px;-webkit-font-smoot
 .wk-actions{padding:16px 20px 0;display:flex;gap:10px}
 
 /* Bien-être view */
-.be-cycle{margin:16px 20px 0;border-radius:var(--r2);padding:20px;overflow:hidden;position:relative}
+.be-cycle{margin:16px 20px 0;border-radius:var(--r2);padding:20px;position:relative}
 .be-cycle-tag{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px}
 .be-cycle-name{font-size:24px;font-weight:900;letter-spacing:-.03em;margin-bottom:4px}
 .be-cycle-advice{font-size:13px;opacity:.8;line-height:1.5;margin-bottom:16px}
@@ -139,7 +138,7 @@ body{font-family:var(--sans);color:var(--text);font-size:15px;-webkit-font-smoot
 .be-ctrl{display:flex;align-items:center;gap:12px}
 .be-day-num{font-size:28px;font-weight:900}
 .be-ctrl-btns{display:flex;gap:6px}
-.be-cyc-btn{width:32px;height:32px;border-radius:10px;background:rgba(255,255,255,.2);border:none;color:#fff;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.be-cyc-btn{width:44px;height:44px;border-radius:12px;background:rgba(255,255,255,.2);border:none;color:#fff;font-size:22px;cursor:pointer;display:flex;align-items:center;justify-content:center;-webkit-tap-highlight-color:transparent}
 
 /* Mood card */
 .mood-card{margin:12px 20px 0;background:var(--white);border:1px solid var(--border);border-radius:var(--r2);padding:18px 20px}
@@ -209,17 +208,6 @@ body{font-family:var(--sans);color:var(--text);font-size:15px;-webkit-font-smoot
 .meal-slot2-time{font-size:10px;color:var(--muted);font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:1px}
 .meal-slot2-name{font-size:14px;font-weight:700}
 .meal-slot2-cal{font-size:11px;color:var(--muted);margin-top:1px}
-.gen-card2{margin:12px 20px 0;background:linear-gradient(135deg,#1e1228,#120d1a);border-radius:var(--r);padding:20px}
-.gen-card2-title{font-size:16px;font-weight:800;color:#fff;margin-bottom:4px}
-.gen-card2-sub{font-size:12px;color:rgba(255,255,255,.5);margin-bottom:14px}
-.api-inp{width:100%;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:10px;color:#fff;font-family:var(--sans);font-size:13px;padding:11px 14px;outline:none;margin-bottom:8px}
-.api-inp:focus{border-color:#a855f7}
-.api-inp::placeholder{color:rgba(255,255,255,.3)}
-.gen-prefs2{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
-.gen-pref2{padding:7px 12px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:100px;font-size:12px;font-weight:600;color:rgba(255,255,255,.7);cursor:pointer;transition:all .2s}
-.gen-pref2.sel{background:rgba(168,85,247,.3);border-color:#a855f7;color:#e9d5ff}
-.claude-loading2{display:none;text-align:center;padding:14px;color:rgba(255,255,255,.5);font-size:13px}
-.claude-loading2.show{display:block}
 
 /* Stats */
 .stat-card{margin:0 20px 10px;background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:16px}
@@ -492,33 +480,9 @@ body{font-family:var(--sans);color:var(--text);font-size:15px;-webkit-font-smoot
       <div class="nutr-hero-meta" id="hero-meta">Connecte Claude pour commencer</div>
     </div>
   </div>
-  <div style="padding:16px 20px 8px;font-size:13px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)">Plan de la semaine</div>
-  <div class="meal-plan-wrap" id="meal-plan-card">
-    <div style="padding:20px;text-align:center;color:var(--muted);font-size:13px">Aucun plan — utilise Claude ci-dessous 👇</div>
-  </div>
-  <div style="padding:16px 20px 8px;font-size:13px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)">✨ Générer avec Claude</div>
-  <div class="gen-card2">
-    <div class="gen-card2-title">Meal plan personnalisé</div>
-    <div class="gen-card2-sub">Adapté à ton cycle et tes objectifs · 7 jours</div>
-    <input class="api-inp" type="password" placeholder="Clé API Anthropic (sk-ant-...)" id="api-key" oninput="saveKey()">
-    <div style="font-size:11px;color:rgba(255,255,255,.3);margin-bottom:12px">Stockée localement uniquement.</div>
-    <div style="font-size:11px;color:rgba(255,255,255,.4);font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:8px">Préférences</div>
-    <div class="gen-prefs2">
-      <button class="gen-pref2" onclick="this.classList.toggle('sel')">🌿 Végétarien</button>
-      <button class="gen-pref2" onclick="this.classList.toggle('sel')">🐟 Pescatarien</button>
-      <button class="gen-pref2" onclick="this.classList.toggle('sel')">🥩 Sans gluten</button>
-      <button class="gen-pref2" onclick="this.classList.toggle('sel')">💪 Riche protéines</button>
-      <button class="gen-pref2" onclick="this.classList.toggle('sel')">⚡ Faible calories</button>
-    </div>
-    <div style="font-size:11px;color:rgba(255,255,255,.4);font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:8px">Objectif calorique</div>
-    <div class="gen-prefs2" id="kcal-row">
-      <button class="gen-pref2 sel" onclick="selKcal(1800,this)">1800 kcal</button>
-      <button class="gen-pref2" onclick="selKcal(2000,this)">2000 kcal</button>
-      <button class="gen-pref2" onclick="selKcal(2200,this)">2200 kcal</button>
-    </div>
-    <button class="btn btn-claude btn-full" onclick="generateMealPlan()" style="margin-top:4px">✨ Générer avec Claude</button>
-    <div class="claude-loading2" id="claude-loading">⏳ Claude réfléchit à ton plan...</div>
-  </div>
+  <div style="padding:16px 20px 4px;font-size:13px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)">Plan de la semaine</div>
+  <div style="padding:0 20px 12px;font-size:12px;color:var(--muted)" id="meal-plan-phase-label"></div>
+  <div class="meal-plan-wrap" id="meal-plan-card"></div>
 
   <div style="padding:20px 20px 10px;font-size:13px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)">📌 Mes recettes</div>
   <div class="recipe-filter-row" id="recipe-filters"></div>
@@ -718,6 +682,117 @@ const PHASES = [
 ];
 
 function getPhase(d){ return PHASES.find(p=>d>=p.range[0]&&d<=p.range[1])||PHASES[0]; }
+function getCyclePhaseIdx(){ return PHASES.indexOf(getPhase(cycleDay)); }
+
+// ── SÉANCES PAR PHASE CYCLE ───────────────────────────────────
+// null = utilise les SESSIONS de base (Printemps = standard)
+const PHASE_SESSIONS = [
+  // 0 — Hiver J1-3 : douceur, poids de corps, mobilité
+  [
+    {id:'A', name:'Fessiers doux',     tag:'Séance 1', meta:'25mn | 4 exercices', thumbClass:'th-glutes', emoji:'🍑', type:'weights', exercises:[
+      {name:'Pont fessier bilatéral', sets:2, reps:15,         tip:'Poids de corps — amplitude confort'},
+      {name:'Abduction élastique',    sets:2, reps:20,         tip:'Élastique léger, mouvement lent'},
+      {name:'Dead bug doux',          sets:2, reps:8,          tip:'Dos collé au sol, expiration longue'},
+      {name:'Étirement piriforme',    sets:1, reps:'2 min/côté',tip:'Figure 4, dos au sol — détente profonde'},
+    ]},
+    {id:'B', name:'Core & Respiration',tag:'Séance 2', meta:'25mn | 4 exercices', thumbClass:'th-core', emoji:'🎯', type:'weights', exercises:[
+      {name:'Respiration diaphragmatique',sets:1,reps:'5 min',     tip:'4s inspir ventre · 6s expir — active le parasympathique'},
+      {name:'Dead bug',                   sets:2,reps:8,           tip:'Mouvements lents, dos immobile'},
+      {name:'Gainage sur genoux',         sets:2,reps:'20s',       tip:'Version douce — focus gainage profond'},
+      {name:'Cat-cow',                    sets:2,reps:10,          tip:'Synchronisé avec la respiration'},
+    ]},
+    {id:'C', name:'Marche & Mobilité', tag:'Séance 3', meta:'30mn | 4 exercices', thumbClass:'th-run-s', emoji:'🚶', type:'weights', exercises:[
+      {name:'Marche rapide',              sets:1,reps:'20 min',     tip:'Dehors ou tapis — allure confort, tu dois pouvoir parler'},
+      {name:'Étirement quadriceps',       sets:1,reps:'1 min/côté', tip:'Debout, talon vers fessier'},
+      {name:'Mobilité chevilles',         sets:2,reps:'10 rota.',   tip:'Cercles lents dans les deux sens'},
+      {name:'Pigeon allongé',             sets:1,reps:'2 min/côté', tip:'Ouverture de hanche douce — respire dans la posture'},
+    ]},
+    {id:'RUN',   name:'Marche douce',  tag:'Séance 4', meta:'20–30mn | allure très confort', thumbClass:'th-run',   emoji:'🚶', type:'run',   exercises:[]},
+    {id:'LIBRE', name:'Séance libre',  tag:'Séance 5', meta:'Salle · Cardio · Natation · Cours…', thumbClass:'th-libre', emoji:'🌟', type:'libre', exercises:[]},
+  ],
+  // 1 — Printemps J4-12 : standard (base SESSIONS)
+  null,
+  // 2 — Été J13-15 : intensité maximale
+  [
+    {id:'A', name:'Glutes FIRE',       tag:'Séance 1', meta:'45mn | 5 exercices', thumbClass:'th-glutes', emoji:'🍑', type:'weights', exercises:[
+      {name:'Hip thrust chargé',        sets:4, reps:10, tip:'Ajoute 2–5 kg vs ta dernière séance — pic d\'énergie !'},
+      {name:'Fente bulgare',            sets:4, reps:10, tip:'Cherche ton record — amplitude maximale'},
+      {name:'Pont fessier 1 jambe',     sets:3, reps:12, tip:'2s de contraction en haut, descente contrôlée'},
+      {name:'Romanian DL 1 jambe',      sets:3, reps:10, tip:'Charge progressive — teste ta limite'},
+      {name:'Mollets sautés',           sets:3, reps:15, tip:'Impulsion maximale, réception souple'},
+    ]},
+    {id:'B', name:'Core Power',        tag:'Séance 2', meta:'45mn | 6 exercices', thumbClass:'th-core', emoji:'🎯', type:'weights', exercises:[
+      {name:'Dead bug tempo',           sets:4, reps:12,    tip:'Mouvement 3 secondes — contrôle absolu'},
+      {name:'Bird dog lesté',           sets:3, reps:12,    tip:'Haltère dans la main opposée à la jambe'},
+      {name:'Gainage latéral',          sets:3, reps:'40s', tip:'Corps parfaitement aligné — sors ton max'},
+      {name:'Step-up genou levé lesté', sets:3, reps:12,    tip:'Haltères en mains — intensité été'},
+      {name:'Squat goblet lourd',       sets:4, reps:10,    tip:'Descente 3s, explosion vers le haut'},
+      {name:'Stabilité hanche',         sets:2, reps:'1min',tip:'Élastique fort — abduction en mini-squat'},
+    ]},
+    {id:'C', name:'Run Strong MAX',    tag:'Séance 3', meta:'45mn | 5 exercices', thumbClass:'th-run-s', emoji:'🏋️', type:'weights', exercises:[
+      {name:'Squat tempo lourd',        sets:4, reps:10,    tip:'3s descente — bats ton record de charge'},
+      {name:'Fente avant lestée',       sets:4, reps:12,    tip:'Haltères en mains — cherche l\'intensité'},
+      {name:'Fente arrière sautée',     sets:3, reps:8,     tip:'Plyométrie — réservé à la phase été !'},
+      {name:'SdT 1 jambe',              sets:3, reps:10,    tip:'Charge maximale du cycle'},
+      {name:'Mobilité cheville',        sets:2, reps:'10',  tip:'Amplitude complète avant le run'},
+    ]},
+    {id:'RUN',   name:'Run Intense',   tag:'Séance 4', meta:'40mn | fractionné optionnel', thumbClass:'th-run',   emoji:'🏃', type:'run',   exercises:[]},
+    {id:'LIBRE', name:'Séance libre',  tag:'Séance 5', meta:'Salle · Cardio · Natation · Cours…', thumbClass:'th-libre', emoji:'🌟', type:'libre', exercises:[]},
+  ],
+  // 3 — Automne J16-28 : modéré, mobilité, pilates
+  [
+    {id:'A', name:'Glutes & Souplesse',tag:'Séance 1', meta:'35mn | 5 exercices', thumbClass:'th-glutes', emoji:'🍑', type:'weights', exercises:[
+      {name:'Hip thrust',               sets:3, reps:12,          tip:'Charge habituelle — pas de record, écoute ton corps'},
+      {name:'Fente arrière douce',      sets:3, reps:10,          tip:'Amplitude réduite si besoin, buste droit'},
+      {name:'Pont fessier bilatéral',   sets:3, reps:15,          tip:'Focus contraction — qualité > quantité'},
+      {name:'Good morning',             sets:2, reps:12,          tip:'Élasticité chaîne postérieure, dos plat'},
+      {name:'Étirement piriforme',      sets:1, reps:'90s/côté',  tip:'Récupération active — figure 4 au sol'},
+    ]},
+    {id:'B', name:'Core & Pilates',    tag:'Séance 2', meta:'35mn | 6 exercices', thumbClass:'th-core', emoji:'🎯', type:'weights', exercises:[
+      {name:'Dead bug',                 sets:3, reps:10,    tip:'Retour aux bases — contrôle prioritaire'},
+      {name:'Bird dog',                 sets:3, reps:12,    tip:'Lent — stabilité avant tout'},
+      {name:'Gainage latéral',          sets:3, reps:'30s', tip:'Corps aligné, pas de triche'},
+      {name:'Clamshell élastique',      sets:2, reps:20,    tip:'Rotateur externe fessier — automne idéal'},
+      {name:'Step-up genou levé',       sets:3, reps:10,    tip:'Réduis la charge vs phase été'},
+      {name:'Roll-up pilates',          sets:2, reps:10,    tip:'Vertèbre par vertèbre — lenteur intentionnelle'},
+    ]},
+    {id:'C', name:'Mobilité Run',      tag:'Séance 3', meta:'35mn | 5 exercices', thumbClass:'th-run-s', emoji:'🏋️', type:'weights', exercises:[
+      {name:'Squat',                    sets:3, reps:10,          tip:'Charge réduite — focus technique parfaite'},
+      {name:'Fente avant',              sets:3, reps:10,          tip:'Amplitude normale, pas de charge excessive'},
+      {name:'SdT 1 jambe',              sets:3, reps:8,           tip:'Poids réduit vs été — écoute tes articulations'},
+      {name:'Mobilité cheville',        sets:2, reps:'10 rota.',  tip:'Amplitude complète, deux sens'},
+      {name:'Pigeon debout',            sets:1, reps:'90s/côté',  tip:'Étirement actif hanche — respire dans la tension'},
+    ]},
+    {id:'RUN',   name:'Run Easy',      tag:'Séance 4', meta:'30–35mn | allure douce', thumbClass:'th-run',   emoji:'🏃', type:'run',   exercises:[]},
+    {id:'LIBRE', name:'Séance libre',  tag:'Séance 5', meta:'Salle · Cardio · Natation · Cours…', thumbClass:'th-libre', emoji:'🌟', type:'libre', exercises:[]},
+  ],
+];
+
+// ── PROGRESSION SEMAINE PAR SEMAINE ──────────────────────────
+// [phaseIdx programme 0/1/2][weekIdx 0/1/2/3] → {sa:+sets, ra:+reps (num only), badge, tip}
+const WEEK_PROG = [
+  // Phase 1 — Fondations (base : 3 séries)
+  [
+    {sa:0, ra: 0, badge:'📚 Apprentissage',      tip:'Priorité technique — amplitude parfaite, charge légère'},
+    {sa:0, ra: 2, badge:'↑ +2 reps',              tip:'+2 reps par exercice — le corps s\'adapte déjà'},
+    {sa:0, ra: 4, badge:'🔥 Volume max',          tip:'Volume maximum de la phase — tu sens la différence !'},
+    {sa:0, ra:-2, badge:'🔄 Décharge',            tip:'Récupération active — maintiens la charge, réduis le volume'},
+  ],
+  // Phase 2 — Progression (+1 série vs Phase 1)
+  [
+    {sa:1, ra: 0, badge:'↑↑ +1 série',            tip:'Nouvelle phase — ajoute 1 série sur chaque exercice'},
+    {sa:1, ra: 2, badge:'↑↑ +1 série +2 reps',    tip:'+1 série et +2 reps — volume en hausse régulière'},
+    {sa:1, ra: 4, badge:'🏆 Volume peak',          tip:'Volume maximum du programme — donne tout cette semaine !'},
+    {sa:1, ra: 0, badge:'🔄 Décharge P2',          tip:'Décharge — maintiens les acquis, prépare la Phase 3'},
+  ],
+  // Phase 3 — Performance (+2 séries, focus force)
+  [
+    {sa:2, ra:-2, badge:'💪 Force',                tip:'Phase Performance — plus de séries, moins de reps, charge lourde'},
+    {sa:2, ra: 0, badge:'💪↑ Force +',             tip:'+2 séries — cherche tes records de charge cette semaine'},
+    {sa:2, ra: 2, badge:'🏆🔥 Record absolu',      tip:'Semaine record — vas chercher tes maxima du programme !'},
+    {sa:2, ra:-4, badge:'🔄 Taper final',          tip:'Décharge finale — récupère, le programme touche à sa fin'},
+  ],
+];
 
 // ── RECETTES (Pinterest · taguées par phase cycle) ────────────
 // phases: 0=Hiver(J1-3) 1=Printemps(J4-12) 2=Été(J13-15) 3=Automne(J16-28)
@@ -763,10 +838,80 @@ const SAVE = (k,v)=>localStorage.setItem('el_'+k,JSON.stringify(v));
 
 let workouts   = DB('workouts')||[];
 let pbs        = DB('pbs')||{};
-let mealPlan   = DB('mealPlan')||null;
-let targetKcal = DB('kcal')||1800;
 let cycleDay   = DB('cycleDay')||5;
 let curPhaseIdx= 0, curWeek=0, curSessionIdx=0;
+
+// ── PLANS REPAS STATIQUES (par phase cycle) ───────────────────
+const MEAL_PLANS = [
+  // 0 — Hiver · Menstruelle J1-3
+  {days:[
+    {day:'Lundi',    calories:1750, phase_note:'Fer + oméga-3 en priorité — sardines ou saumon 3×/sem',
+     meals:[{time:'Petit-déjeuner',emoji:'🍚',name:'Porridge flocons d\'avoine lait d\'amande cannelle gingembre',calories:350},{time:'Déjeuner',emoji:'🥣',name:'Soupe lentilles épinards curcuma',calories:480},{time:'Collation',emoji:'🍫',name:'Carré chocolat noir 85% + noix',calories:180},{time:'Dîner',emoji:'🍲',name:'Saumon vapeur patate douce brocolis',calories:620}]},
+    {day:'Mardi',    calories:1780, phase_note:'Magnésium : graines de courge dans les plats',
+     meals:[{time:'Petit-déjeuner',emoji:'🍳',name:'Œufs brouillés épinards toast seigle',calories:370},{time:'Déjeuner',emoji:'🍲',name:'Mijoté poulet légumes racines',calories:520},{time:'Collation',emoji:'🍌',name:'Banane + beurre d\'amande',calories:200},{time:'Dîner',emoji:'🫘',name:'Dahl lentilles rouges riz basmati',calories:580}]},
+    {day:'Mercredi', calories:1760, phase_note:'Chaleur et réconfort — évite le cru ce soir',
+     meals:[{time:'Petit-déjeuner',emoji:'🥣',name:'Bouillie amarante miel dattes',calories:360},{time:'Déjeuner',emoji:'🥕',name:'Velouté carottes gingembre coco',calories:450},{time:'Collation',emoji:'🥜',name:'Houmous maison pain seigle grillé',calories:220},{time:'Dîner',emoji:'🫕',name:'Gratin courgettes ravioles',calories:580}]},
+    {day:'Jeudi',    calories:1800, phase_note:'Oméga-3 : sardines, maquereau ou saumon',
+     meals:[{time:'Petit-déjeuner',emoji:'🍞',name:'Toast seigle sardines avocat citron',calories:380},{time:'Déjeuner',emoji:'🍲',name:'Tajine pois chiches patate douce',calories:520},{time:'Collation',emoji:'🍎',name:'Compote pomme cannelle maison',calories:150},{time:'Dîner',emoji:'🐟',name:'Maquereau rôti riz complet haricots verts',calories:630}]},
+    {day:'Vendredi', calories:1780, phase_note:'Glycémie stable — sucres lents uniquement',
+     meals:[{time:'Petit-déjeuner',emoji:'🥣',name:'Granola graines courge noix lait d\'avoine',calories:390},{time:'Déjeuner',emoji:'🥣',name:'Soupe butternut lentilles corail',calories:480},{time:'Collation',emoji:'🫐',name:'Yaourt grec nature fruits rouges',calories:170},{time:'Dîner',emoji:'🍝',name:'Pâtes complètes sauce tomate mijotée tofu',calories:600}]},
+    {day:'Samedi',   calories:1820, phase_note:'Repos — repas longs, chauds, réconfortants',
+     meals:[{time:'Petit-déjeuner',emoji:'🥞',name:'Pancakes sarrasin sirop d\'érable',calories:400},{time:'Déjeuner',emoji:'🥩',name:'Bœuf sauté brocolis gingembre riz',calories:550},{time:'Collation',emoji:'☕',name:'Chocolat chaud 70% lait cajou',calories:180},{time:'Dîner',emoji:'🫘',name:'Soupe légumineuses légumes verts',calories:520}]},
+    {day:'Dimanche', calories:1750, phase_note:'Magnésium : oléagineux à chaque repas',
+     meals:[{time:'Petit-déjeuner',emoji:'🍳',name:'Omelette champignons herbes fraîches',calories:360},{time:'Déjeuner',emoji:'🍲',name:'Pot-au-feu bœuf légumes racines',calories:550},{time:'Collation',emoji:'🍫',name:'Carré chocolat noir amandes',calories:160},{time:'Dîner',emoji:'🐟',name:'Brandade morue patate douce',calories:570}]},
+  ]},
+  // 1 — Printemps · Folliculaire J4-12
+  {days:[
+    {day:'Lundi',    calories:1900, phase_note:'Nouvelle semaine, nouvelle recette — bon moment pour ça',
+     meals:[{time:'Petit-déjeuner',emoji:'🥣',name:'Overnight oats fruits rouges graines chia',calories:380},{time:'Déjeuner',emoji:'🥗',name:'Bowl quinoa avocat tomate feta',calories:540},{time:'Collation',emoji:'🍎',name:'Pomme + beurre d\'amande',calories:180},{time:'Dîner',emoji:'🍗',name:'Poulet grillé taboulé persil citron',calories:620}]},
+    {day:'Mardi',    calories:1950, phase_note:'Pré-séance : glucides complexes 1h avant',
+     meals:[{time:'Petit-déjeuner',emoji:'🟢',name:'Smoothie bowl banane spiruline granola',calories:420},{time:'Déjeuner',emoji:'🥗',name:'Salade niçoise thon œuf haricots',calories:500},{time:'Collation',emoji:'🥕',name:'Houmous légumes crus colorés',calories:160},{time:'Dîner',emoji:'🍤',name:'Pâtes pesto basilic crevettes',calories:640}]},
+    {day:'Mercredi', calories:1900, phase_note:'Post-séance : protéines dans les 30 min',
+     meals:[{time:'Petit-déjeuner',emoji:'🥞',name:'Pancakes avoine yaourt grec myrtilles',calories:400},{time:'Déjeuner',emoji:'🌯',name:'Wrap thon avocat légumes frais',calories:480},{time:'Collation',emoji:'🫐',name:'Yaourt grec granola maison',calories:200},{time:'Dîner',emoji:'🐟',name:'Saumon teriyaki riz noir brocolis',calories:650}]},
+    {day:'Jeudi',    calories:1920, phase_note:'Fibres+ : ajoute des graines de lin au déjeuner',
+     meals:[{time:'Petit-déjeuner',emoji:'🫐',name:'Bol açaï myrtilles banane graines',calories:410},{time:'Déjeuner',emoji:'🥗',name:'Buddha bowl lentilles légumes rôtis',calories:520},{time:'Collation',emoji:'🍫',name:'Bliss balls cajou-cacao maison',calories:190},{time:'Dîner',emoji:'🍲',name:'Tajine légumes pois chiches coriandre',calories:600}]},
+    {day:'Vendredi', calories:1950, phase_note:'Bonne fenêtre pour tester une recette inédite',
+     meals:[{time:'Petit-déjeuner',emoji:'🍳',name:'Toast avocat œuf poché tomates',calories:390},{time:'Déjeuner',emoji:'🥗',name:'Salade feta pastèque concombre menthe',calories:460},{time:'Collation',emoji:'🍫',name:'Chocolat noir 70% 2 carreaux',calories:120},{time:'Dîner',emoji:'🥩',name:'Bœuf sauté légumes wok gingembre soja',calories:660}]},
+    {day:'Samedi',   calories:2000, phase_note:'Énergie haute — séance intense possible',
+     meals:[{time:'Petit-déjeuner',emoji:'🐟',name:'Poke bowl saumon avocat edamame riz',calories:490},{time:'Déjeuner',emoji:'🌾',name:'Salade quinoa chou rouge pomme noix',calories:500},{time:'Collation',emoji:'🥜',name:'Noix cajou amandes raisins secs',calories:200},{time:'Dîner',emoji:'🧆',name:'Falafels houmous légumes grillés pita',calories:610}]},
+    {day:'Dimanche', calories:1880, phase_note:'Récupération : hydratation et fibres',
+     meals:[{time:'Petit-déjeuner',emoji:'🥣',name:'Porridge multi-graines fruits secs',calories:380},{time:'Déjeuner',emoji:'🦪',name:'Moules marinières frites au four',calories:520},{time:'Collation',emoji:'🫐',name:'Smoothie fraise banane lait végétal',calories:160},{time:'Dîner',emoji:'🥗',name:'Salade lentilles betterave noix',calories:540}]},
+  ]},
+  // 2 — Été · Ovulatoire J13-15
+  {days:[
+    {day:'Lundi',    calories:1850, phase_note:'Pic d\'énergie — repas rapides et légers',
+     meals:[{time:'Petit-déjeuner',emoji:'🫐',name:'Smoothie myrtilles épinards protéiné',calories:340},{time:'Déjeuner',emoji:'🐟',name:'Tartare saumon avocat agrumes',calories:520},{time:'Collation',emoji:'🥥',name:'Chia pudding lait coco mangue',calories:190},{time:'Dîner',emoji:'🥗',name:'Salade super-verte poulet grillé',calories:580}]},
+    {day:'Mardi',    calories:1900, phase_note:'Antioxydants max : myrtilles, épinards, avocat',
+     meals:[{time:'Petit-déjeuner',emoji:'🍈',name:'Bowl papaye kiwi graines chia lin',calories:310},{time:'Déjeuner',emoji:'🥗',name:'Salade niçoise légère olives',calories:460},{time:'Collation',emoji:'🍫',name:'Chocolat noir 85% noix',calories:160},{time:'Dîner',emoji:'🐙',name:'Poulpe méditerranéen tomates herbes',calories:490}]},
+    {day:'Mercredi', calories:1870, phase_note:'Record possible aujourd\'hui — glucides pré-séance',
+     meals:[{time:'Petit-déjeuner',emoji:'🟢',name:'Açaï bowl myrtilles spiruline granola',calories:390},{time:'Déjeuner',emoji:'🥒',name:'Bowl courgette pesto ricotta',calories:480},{time:'Collation',emoji:'🥑',name:'Toast seigle avocat radis citron',calories:200},{time:'Dîner',emoji:'🍗',name:'Poulet tikka salade roquette',calories:580}]},
+    {day:'Jeudi',    calories:1920, phase_note:'Anti-inflammatoire : curcuma + poivre noir',
+     meals:[{time:'Petit-déjeuner',emoji:'🥣',name:'Overnight oats myrtilles lin protéiné',calories:380},{time:'Déjeuner',emoji:'🌯',name:'Wrap légumes crus houmous graines',calories:440},{time:'Collation',emoji:'🍓',name:'Sorbet mangue framboises',calories:130},{time:'Dîner',emoji:'🐟',name:'Tataki thon graines sésame riz',calories:620}]},
+    {day:'Vendredi', calories:1880, phase_note:'Léger le soir — digestion facile',
+     meals:[{time:'Petit-déjeuner',emoji:'🟢',name:'Green smoothie bowl kiwi épinards',calories:360},{time:'Déjeuner',emoji:'🥗',name:'Salade quinoa grenade avocat',calories:500},{time:'Collation',emoji:'🧃',name:'Kombucha + carré chocolat noir',calories:140},{time:'Dîner',emoji:'🍢',name:'Brochettes légumes burrata basilic',calories:490}]},
+    {day:'Samedi',   calories:1950, phase_note:'Dernier jour ovulatoire — profite de l\'énergie',
+     meals:[{time:'Petit-déjeuner',emoji:'🥞',name:'Pancakes myrtilles chia sirop agave',calories:410},{time:'Déjeuner',emoji:'🌾',name:'Salade quinoa multicolore légumineuses',calories:520},{time:'Collation',emoji:'🍓',name:'Bowl fraises ricotta miel',calories:170},{time:'Dîner',emoji:'🥩',name:'Steak grillé salade verte tomates',calories:600}]},
+    {day:'Dimanche', calories:1860, phase_note:'Transition lutéale — commence à te nourrir chaud',
+     meals:[{time:'Petit-déjeuner',emoji:'🥣',name:'Porridge lin pomme cannelle',calories:370},{time:'Déjeuner',emoji:'🌮',name:'Tacos cottage cheese avocat salsa',calories:490},{time:'Collation',emoji:'🫐',name:'Smoothie myrtilles lait cajou',calories:160},{time:'Dîner',emoji:'🍲',name:'Soupe miso tofu edamame algues',calories:470}]},
+  ]},
+  // 3 — Automne · Lutéale J16-28
+  {days:[
+    {day:'Lundi',    calories:1780, phase_note:'Magnésium : chocolat 85% ce soir, graines courge midi',
+     meals:[{time:'Petit-déjeuner',emoji:'🥣',name:'Porridge amarante chocolat graines courge',calories:400},{time:'Déjeuner',emoji:'🥣',name:'Soupe butternut lentilles corail',calories:490},{time:'Collation',emoji:'🍫',name:'Chocolat 85% noisettes',calories:170},{time:'Dîner',emoji:'🐟',name:'Gratin saumon brocolis crème légère',calories:590}]},
+    {day:'Mardi',    calories:1800, phase_note:'Glycémie stable — évite les sucres rapides',
+     meals:[{time:'Petit-déjeuner',emoji:'🥜',name:'Granola noix graines maison yaourt nature',calories:410},{time:'Déjeuner',emoji:'🍲',name:'Bol chaud riz noir légumineuses curry',calories:520},{time:'Collation',emoji:'🥖',name:'Pain seigle houmous',calories:180},{time:'Dîner',emoji:'🍗',name:'Curry poulet patate douce lait coco',calories:580}]},
+    {day:'Mercredi', calories:1770, phase_note:'Intensité réduite — repas digeste ce soir',
+     meals:[{time:'Petit-déjeuner',emoji:'🍳',name:'Œufs brouillés épinards champignons',calories:380},{time:'Déjeuner',emoji:'🥣',name:'Soupe miso tofu edamame',calories:430},{time:'Collation',emoji:'🍫',name:'Carrés dattes-cacao maison',calories:190},{time:'Dîner',emoji:'🦃',name:'Sauté dinde courgettes quinoa',calories:560}]},
+    {day:'Jeudi',    calories:1820, phase_note:'Fibres solubles : haricots et graines à chaque repas',
+     meals:[{time:'Petit-déjeuner',emoji:'🍞',name:'Pain d\'épices complet beurre d\'amande',calories:370},{time:'Déjeuner',emoji:'🍛',name:'Dal lentilles gingembre riz basmati',calories:530},{time:'Collation',emoji:'☕',name:'Thé gingembre citron + noix',calories:160},{time:'Dîner',emoji:'🫘',name:'Lasagne lentilles champignons',calories:610}]},
+    {day:'Vendredi', calories:1790, phase_note:'Dîner léger — digestion prioritaire',
+     meals:[{time:'Petit-déjeuner',emoji:'🥑',name:'Avocado toast noix poivre pain complet',calories:390},{time:'Déjeuner',emoji:'🍜',name:'Ramen maison miso poulet œuf mollet',calories:540},{time:'Collation',emoji:'🍎',name:'Compote pomme cardamome maison',calories:140},{time:'Dîner',emoji:'🍑',name:'Boulettes dinde abricot-romarin orzo',calories:560}]},
+    {day:'Samedi',   calories:1820, phase_note:'Batch cooking du weekend — cuisine pour 3 jours',
+     meals:[{time:'Petit-déjeuner',emoji:'🥞',name:'Pancakes sarrasin banane miel',calories:410},{time:'Déjeuner',emoji:'🫕',name:'Gratin courgettes ravioles',calories:540},{time:'Collation',emoji:'🍫',name:'Chocolat noir amandes graines courge',calories:180},{time:'Dîner',emoji:'🥩',name:'Tajine agneau carottes olives',calories:620}]},
+    {day:'Dimanche', calories:1800, phase_note:'Prépare tes lunches de la semaine',
+     meals:[{time:'Petit-déjeuner',emoji:'☕',name:'Smoothie chaud lait cajou cacao cannelle',calories:350},{time:'Déjeuner',emoji:'🥕',name:'Soupe légumes racines haricots blancs',calories:480},{time:'Collation',emoji:'🍮',name:'Pudding chia lait coco cannelle',calories:190},{time:'Dîner',emoji:'🧡',name:'Butter tofu riz basmati épinards',calories:610}]},
+  ]},
+];
 let activeProgKey=null;
 let wStart=null, wTimer=null, restInt=null, restSec=0;
 let yogaType='Pilates doux', yogaFeel=2, runFeel=3;
@@ -845,7 +990,17 @@ function renderSessionList(){
   // Build sessions for this week based on freq
   const sessionsThisWeek = getSessForWeek(curPhaseIdx, curWeek);
 
+  const weekProg = (WEEK_PROG[curPhaseIdx]||[])[curWeek];
   const list=document.getElementById('session-list'); list.innerHTML='';
+
+  if(weekProg){
+    list.innerHTML=`<div style="background:var(--white);border-radius:14px;padding:12px 16px;margin-bottom:4px;border-left:3px solid var(--rose)">
+      <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:3px">Objectif · S${curWeek+1} · P${curPhaseIdx+1}</div>
+      <div style="font-size:14px;font-weight:800;color:var(--text)">${weekProg.badge}</div>
+      <div style="font-size:11px;color:var(--muted);margin-top:2px;line-height:1.4">${weekProg.tip}</div>
+    </div>`;
+  }
+
   sessionsThisWeek.forEach((sess,i)=>{
     const done=isSessionDone(curPhaseIdx,curWeek,i);
     const isNext=!done && !sessionsThisWeek.slice(0,i).some((_,ii)=>!isSessionDone(curPhaseIdx,curWeek,ii));
@@ -869,8 +1024,19 @@ function renderSessionList(){
 }
 
 function getSessForWeek(phaseIdx, weekIdx){
-  // Toujours 3 muscu + 1 run + 1 libre
-  return [SESSIONS[0], SESSIONS[1], SESSIONS[2], SESSIONS[3], SESSIONS[4]];
+  const cyclePhase = PHASE_SESSIONS[getCyclePhaseIdx()];
+  return cyclePhase || [SESSIONS[0], SESSIONS[1], SESSIONS[2], SESSIONS[3], SESSIONS[4]];
+}
+
+function applyProgression(exercises, progPhaseIdx, weekIdx){
+  if(!exercises || !exercises.length) return exercises;
+  const p = (WEEK_PROG[progPhaseIdx]||[])[weekIdx];
+  if(!p || (p.sa===0 && p.ra===0)) return exercises;
+  return exercises.map(ex => ({
+    ...ex,
+    sets: Math.max(1, (ex.sets||3) + p.sa),
+    reps: typeof ex.reps === 'number' ? Math.max(1, ex.reps + p.ra) : ex.reps
+  }));
 }
 
 function isSessionDone(phaseIdx,weekIdx,sessIdx){
@@ -897,7 +1063,9 @@ function selWeek(w){
 }
 
 function launchSession(sessId, phaseIdx, weekIdx, sessIdx){
-  const sess=SESSIONS.find(s=>s.id===sessId)||YOGA_SESSIONS.find(s=>s.id===sessId);
+  const weekSess = getSessForWeek(phaseIdx, weekIdx);
+  const sess = weekSess.find(s=>s.id===sessId) || YOGA_SESSIONS.find(s=>s.id===sessId);
+  if(!sess) return;
   if(sess.type==='run'){
     go('workout',document.getElementById('nav-workout'));
     openRunLog();
@@ -914,7 +1082,8 @@ function launchSession(sessId, phaseIdx, weekIdx, sessIdx){
     return;
   }
   activeProgKey={phaseIdx,weekIdx,sessIdx};
-  startWeightsSession(sess);
+  const progSess = {...sess, exercises: applyProgression(sess.exercises, phaseIdx, weekIdx)};
+  startWeightsSession(progSess);
 }
 
 function startNextSession(){
@@ -1248,8 +1417,10 @@ function saveYoga(){
 
 // ── NUTRITION ─────────────────────────────────────────────────
 function renderNutrition(){
-  const key=DB('apiKey'); if(key) document.getElementById('api-key').value=key;
-  if(mealPlan) renderMealPlan(mealPlan);
+  const ph = getPhase(cycleDay);
+  const phIdx = PHASES.indexOf(ph);
+  document.getElementById('meal-plan-phase-label').textContent = ph.emoji + ' ' + ph.name + ' · plan adapté J' + cycleDay;
+  renderMealPlan(MEAL_PLANS[phIdx]);
   renderRecipes();
 }
 
@@ -1300,45 +1471,6 @@ function renderRecipes(){
 function selRecipeFilter(idx, btn){
   curRecipeFilter = idx;
   renderRecipes();
-}
-function saveKey(){SAVE('apiKey',document.getElementById('api-key').value);}
-function selKcal(v,btn){ targetKcal=v; SAVE('kcal',v); document.querySelectorAll('#kcal-row .gen-pref2').forEach(b=>b.classList.remove('sel')); btn.classList.add('sel'); }
-
-async function generateMealPlan(){
-  const key=document.getElementById('api-key').value.trim();
-  if(!key){alert('Entre ta clé API Anthropic (sk-ant-...)');return;}
-  SAVE('apiKey',key);
-  document.getElementById('claude-loading').classList.add('show');
-  document.querySelector('.btn-claude').disabled=true;
-  const prefs=Array.from(document.querySelectorAll('.gen-pref2.sel')).map(b=>b.textContent.trim()).join(', ')||'Aucune';
-  const phase=getPhase(cycleDay);
-  const CYCLE_FOOD = {
-    'Hiver · Fatigomax':     'Menstruelle J1-3 : plats CHAUDS et mijotés. Priorité FER (lentilles, épinards, légumineuses), MAGNÉSIUM, OMÉGA-3. Rien de cru ou difficile à digérer. Pas de sucre raffiné. Réconfort avant tout.',
-    'Printemps · Folliculaire':'Folliculaire J4-12 : repas colorés, variés, cru OK. Protéines et fibres. Bowls, salades composées. Bonne fenêtre pour essayer de nouvelles recettes.',
-    'Été · Ovulatoire':      'Ovulatoire J13-15 : léger, anti-inflammatoire, peu cuit ou cru. Antioxydants : myrtilles, épinards, avocat. Repas rapides.',
-    'Automne · Lutéale':     'Lutéale J16-28 : CHAUD et réconfortant. Glycémie stable — exit sucre raffiné. MAGNÉSIUM prioritaire : chocolat noir 70%, graines de courge, oléagineux, légumes verts. Dîners légers et digestes.',
-  };
-  const foodGuide = CYCLE_FOOD[phase.name] || '';
-  const prompt=`Tu es nutritionniste experte en cycle syncing et sport féminin. Plan alimentaire 7 jours pour une femme, 3 séances renforcement fonctionnel + 1 running/semaine. Objectif : longévité, prendre en muscle plutôt qu'en gras.
-
-PHASE ACTUELLE : ${phase.name} (J${cycleDay}/28)
-DIRECTIVE PHASE : ${foodGuide}
-RÈGLES TOUTES PHASES : protéines à chaque repas, glucides complexes avant séances intenses, protéines dans les 30 min après séance.
-Objectif calorique : ${targetKcal} kcal/jour. Préférences : ${prefs}.
-
-La "phase_note" = conseil pratique concret lié à la phase (aliment, timing, astuce récupération).
-
-JSON UNIQUEMENT :
-{"days":[{"day":"Lundi","calories":1850,"phase_note":"Astuce cycle concrète","meals":[{"time":"Petit-déjeuner","emoji":"🥣","name":"Porridge banane-cannelle","calories":380},{"time":"Déjeuner","emoji":"🥗","name":"Bowl lentilles épinards","calories":520},{"time":"Collation","emoji":"🍫","name":"Chocolat noir amandes","calories":180},{"time":"Dîner","emoji":"🍲","name":"Mijoté poulet patate douce","calories":650}]}]}
-7 jours Lundi→Dimanche. Sois variée et précise.`;
-  try{
-    const res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json','x-api-key':key,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},body:JSON.stringify({model:'claude-haiku-4-5-20251001',max_tokens:2500,messages:[{role:'user',content:prompt}]})});
-    if(!res.ok){const e=await res.json();throw new Error(e.error?.message||'Erreur API');}
-    const data=await res.json();
-    const json=JSON.parse(data.content[0].text.match(/\{[\s\S]*\}/)[0]);
-    mealPlan=json; SAVE('mealPlan',json); renderMealPlan(json);
-  }catch(e){alert('Erreur : '+e.message);}
-  finally{document.getElementById('claude-loading').classList.remove('show');document.querySelector('.btn-claude').disabled=false;}
 }
 
 function renderMealPlan(plan){
